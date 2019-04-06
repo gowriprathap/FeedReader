@@ -30,10 +30,10 @@ $(function() {
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
-        it('test for URL defined and not empty', function() {
+        it('test to ensure that URL is defined and not empty', function() {
           allFeeds.forEach(function(feed) {
-            expect(feed.url).toBeDefined();
-            expect(feed.url.length).not.toBe(0);
+            expect(feed.url).toBeDefined(); //to ensure that the feed URL is defined
+            expect(feed.url.length).not.toBe(0); //to ensure that the feed URL length is not 0, so it is not empty
           });
         });
 
@@ -41,10 +41,10 @@ $(function() {
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
-         it('test to ensure name defined and not empty', function() {
+         it('test to ensure that name is defined and not empty', function() {
            allFeeds.forEach(function(feed) {
-             expect(feed.name).toBeDefined();
-             expect(feed.name.length).not.toBe(0);
+             expect(feed.name).toBeDefined(); //to ensure that the feed name is defined
+             expect(feed.name.length).not.toBe(0); //to ensure that the feed name length is not 0, so it is not empty
            });
          });
     });
@@ -58,7 +58,7 @@ $(function() {
          * hiding/showing of the menu element.
          */
          it('menu element hidden by default', function() {
-             expect($('body').hasClass('menu-hidden')).toBe(true);
+             expect($('body').hasClass('menu-hidden')).toBe(true); //to ensure that the body in the HTML has the class menu hidden, showing that the menu is hidden by default.
          });
 
          /* TODO: Write a test that ensures the menu changes
@@ -85,13 +85,14 @@ $(function() {
          beforeEach(function(done) {
            loadFeed(0, done);
          });
-         it('loadFeed function completed work', function() {
-             expect($('.feed .entry').length).toBeGreaterThan(0);
+         it('atleast a single .entry element', function() {
+             expect($('.feed .entry').length).toBeGreaterThan(0); //to test if there is at least a single .entry element
          });
     });
 
     /* TODO: Write a new test suite named "New Feed Selection" */
     describe('Initial Entries', function() {
+      var oldFeed; //the old feed
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
@@ -103,7 +104,7 @@ $(function() {
            });
          });
          it('new feed loaded content changes', function() {
-             expect($('.feed').html()).not.toBe(oldFeed);
+             expect($('.feed').html()).not.toBe(oldFeed); //we expect the new feed is not the same as the old feed.
          });
     });
 
